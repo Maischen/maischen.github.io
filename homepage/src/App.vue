@@ -1,20 +1,32 @@
 <template>
-  <div class="relative h-screen w-screen bg-[#412B6B] overflow-hidden">
-    <!-- Sanfter Glow-Kreis in Orange, mittig -->
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <div class="w-[900px] h-[900px] rounded-full bg-gradient-orange-glow" />
-    </div>
+  <div class="relative h-screen w-screen bg-[#FAF3E7] overflow-hidden">
 
     <!-- NAVIGATION rechts -->
-    <nav class="absolute top-16 right-16 flex flex-col gap-10 z-10">
-      <button class="nav-btn" @click="active = 'about'">About me</button>
-      <button class="nav-btn" @click="active = 'projects'">Projects</button>
-      <button class="nav-btn" @click="active = 'contact'">Contact</button>
-    </nav>
+    <div class="fixed w-full flex justify-end p-8 space-x-4 z-10">
+      <button 
+        class="button-base" 
+        @click="active = 'about'"
+      >
+      About me
+      </button>
+      <button 
+        class="button-base" 
+        @click="active = 'projects'"
+      >
+      Projects
+      </button>
+      <button 
+        class="button-base "
+        @click="active = 'contact'"
+      >
+        Contact
+      </button>
+    </div>
+
 
     <!-- HEADER oben links -->
     <header class="absolute top-10 left-16 z-10">
-      <h1 class="text-white text-3xl font-bold underline">Maischen</h1>
+      <h1 class="text-black text-3xl font-bold underline">Maischen</h1>
     </header>
 
     <!-- INHALTSBOX links unter Maischen -->
@@ -41,26 +53,22 @@ const active = ref('about')
 </script>
 
 <style scoped>
-.bg-gradient-orange-glow {
-  background: radial-gradient(
-    circle,
-    rgba(242,89,18, 0.28) 0%,
-    rgba(65,43,107, 0.07) 60%,
-    rgba(65,43,107, 0.0) 100%
-  );
+
+.button-base {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.9rem;
+  background: orange;
+  box-shadow: 0 8px 24px red;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: black;
 }
-.nav-btn {
-  color: #fff;
-  background: none;
-  border: 2px solid #fff;
-  border-radius: 16px;
-  padding: 0.5rem 1.5rem;
-  font-size: 1.3rem;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-.nav-btn:hover {
-  background: rgba(242,89,18,0.11);
-  color: #fff59d;
+
+.button-base:hover {
+  box-shadow: 0 16px 32px orange;
+  transform: scale(1.25);
 }
 </style>
